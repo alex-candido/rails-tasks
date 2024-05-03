@@ -1,0 +1,6 @@
+= form_for @task do |f|
+    div
+        = f.text_field :title, placeholder: "Task Title"
+    div
+        = f.text_field :description, placeholder: "Task Description"
+    = f.submit

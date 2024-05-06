@@ -18,9 +18,9 @@ table
                 td = task.created_at
                 td = task.updated_at
                 td 
-                    = link_to "Edit", edit_task_path(task)
+                    = link_to "Edit", task_path(task)
                     '
-                    = link_to "Destroy", task_path(task), 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?"
+                    = link_to "Destroy", task_path(task)
 
 = link_to "new", new_task_path
 

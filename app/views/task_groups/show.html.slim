@@ -1,0 +1,9 @@
+h1 = @task_group.title
+
+= link_to "Back", task_groups_path
+'
+' |
+= link_to "Edit", edit_task_group_path(@task_group)
+'
+' |
+= link_to "Destroy", task_group_path(@task_group), 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?"

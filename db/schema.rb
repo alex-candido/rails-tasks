@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_03_200652) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_06_191009) do
+  create_table "task_groups", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "position"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "task_group_id", null: false
+    t.index ["task_group_id"], name: "index_tasks_on_task_group_id"
   end
 
+  add_foreign_key "tasks", "task_groups"
 end

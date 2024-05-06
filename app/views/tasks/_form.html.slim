@@ -1,6 +1,7 @@
-= form_for @task do |f|
-    div
-        = f.text_field :title, placeholder: "Task Title"
-    div
-        = f.text_field :description, placeholder: "Task Description"
-    = f.submit 
+= simple_form_for @task do |f|
+    .inputs
+        = f.input :title, placeholder: "Task Title"
+        = f.input :description, placeholder: "Task Description"
+        = f.input :status, collection: Task.statuses, include_blank: false
+    .actions
+        = f.submit 

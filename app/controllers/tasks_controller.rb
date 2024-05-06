@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  before_action :set_task, except: [:index]
+
   def index
     @tasks = Task.all
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def new
@@ -16,37 +17,35 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path, notice: "Task saved successfully"
     else
-      render :new, notice: "Task not saved successfully"
+      render :new, alert: "Task not saved successfully"
     end
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
-
     if @task.update(task_params)
       redirect_to task_path(@task), notice: "Task updated successfully"
     else
-      render :edit, notice: "Task not updated successfully"
+      render :edit, alert: "Task not updated successfully"
     end
   end
 
   def destroy
-    @task = Task.find(params[:id])
-
     if @task.destroy
       redirect_to tasks_path, notice: "Task destroyed successfully"
     else
-      redirect_to tasks_path, notice: "Task not destroyed successfully"
+      redirect_to tasks_path, alert: "Task not destroyed successfully"
     end
   end
 
   private
+    def set_task
+      @task = Task.find(params[:id])
+    end
 
     def task_params
-      params.require(:task).permit(:title, :description)
+      params.require(:task).permit(:title, :description, :status)
     end
 end

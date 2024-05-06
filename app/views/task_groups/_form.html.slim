@@ -1,0 +1,6 @@
+= simple_form_for @task_group do |f|    
+    .inputs 
+        = f.input :title, placeholder: "Task Group Title"
+        = f.input :status, collection: TaskGroup.statuses, include_blank: false
+    .actions
+        = f.submit

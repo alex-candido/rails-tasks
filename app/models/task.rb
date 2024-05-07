@@ -19,6 +19,8 @@
 #  task_group_id  (task_group_id => task_groups.id)
 #
 class Task < ApplicationRecord
+  belongs_to :task_group
+
   enum status: {
     pending: 0,
     completed: 1,

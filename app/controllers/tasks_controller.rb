@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, except: [:index]
+  before_action :set_task, only: %w(show, edit, destroy, update)
 
   def index
     @tasks = Task.all
@@ -46,6 +46,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, :status)
+      params.require(:task).permit(:title, :description, :status, :task_group_id)
     end
 end

@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #
 class TaskGroup < ApplicationRecord
+  has_many :tasks, dependent: :destroy
+
   enum status: {
     active: 0,
     inactive: 1

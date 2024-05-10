@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_10_192755) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_195414) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.integer "status"
@@ -48,6 +48,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_192755) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "phone"
+    t.integer "gender", null: false
+    t.json "social_media", default: {}
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -4,6 +4,10 @@
 
   .form-inputs
     = f.input :email
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :phone
+    = f.input :gender, collection: User.genders
     = f.input :password
     = f.input :password_confirmation
 

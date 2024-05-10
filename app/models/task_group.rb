@@ -8,16 +8,24 @@
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  project_id :integer          not null
+#
+# Indexes
+#
+#  index_task_groups_on_project_id  (project_id)
+#
+# Foreign Keys
+#
+#  project_id  (project_id => projects.id)
 #
 class TaskGroup < ApplicationRecord
   has_many :tasks, dependent: :destroy
+  belongs_to :project
 
   enum status: {
     active: 0,
     inactive: 1
   }
-
-  has_many :tasks, dependent: :destroy
 
   def destroy
     inactive!

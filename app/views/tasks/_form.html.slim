@@ -4,5 +4,6 @@
         = f.input :description, placeholder: "Task Description"
         = f.input :status, collection: Task.statuses, include_blank: false
         = f.association :task_group, as: :select, include_blank: true
+        = f.association :project, as: :select, include_blank: true
     .actions
         = f.submit 

@@ -1,5 +1,5 @@
 class TaskGroupsController < ApplicationController
-  before_action :set_task_group, only: %w(show edit destroy update)
+  before_action :set_task_group, only: [:show, :edit, :destroy, :update]
 
   def index
     @task_groups = TaskGroup.active

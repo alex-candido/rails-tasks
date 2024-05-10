@@ -1,0 +1,6 @@
+= simple_form_for @project do |f|
+    .inputs 
+        = f.input :title, placeholder: "Project Title"
+        = f.input :status, collection: Project.statuses, include_blank: false
+    .actions
+        = f.submit

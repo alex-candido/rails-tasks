@@ -51,7 +51,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_195414) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "phone"
-    t.integer "gender", null: false
+    t.integer "role", default: 1, null: false
+    t.integer "gender"
     t.json "social_media", default: {}
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

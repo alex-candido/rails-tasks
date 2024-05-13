@@ -16,4 +16,15 @@ admin.password_confirmation = "123456"
 admin.admin!
 
 puts "Creating users..."
-employees = FactoryBot.create_list(:user, 15)
+FactoryBot.create_list :user, 15
+
+puts "Creating Projects"
+projects = FactoryBot.create_list :project, 3
+projects.each do |project|
+  backlog = FactoryBot.create :task_group, title: 'Backlog', position: 1, project: project
+
+  FactoryBot.create_list :task,15, task_group: backlog, project: project
+
+  FactoryBot.create :task_group, title: 'Doing', position: 2, project: project
+  FactoryBot.create :task_group, title: 'Done', position: 3, project: project
+end

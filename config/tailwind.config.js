@@ -10,7 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', 'Nunito Sans', ...defaultTheme.fontFamily.sans],
+        body: ['Nunito Sans', 'sans-serif'],
       },
     },
   },

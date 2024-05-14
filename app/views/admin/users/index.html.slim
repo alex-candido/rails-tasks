@@ -1,11 +1,14 @@
-p style="color: green" = notice
-
-h1 Users
+.admin-hero.flex.justify-between.bg-white.mb-6.p-6 
+  .admin-hero-title.font-bold.[class="text-[2rem] text-[#7a7a7a]"]
+    h1 Users
+  .admin-hero-actions 
+    span = link_to "New user", new_admin_user_path
 
 #users
   - @users.each do |user|
-    == render user
-    p
-      = link_to "Show this user", [:admin, user]
+    .field.flex
+      span == render user
+      span &nbsp;
+      p = link_to "Show this user", [:admin, user]
 
-= link_to "New user", new_admin_user_path
+

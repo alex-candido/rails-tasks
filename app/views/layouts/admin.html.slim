@@ -10,11 +10,12 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body.bg-gray-200.font-body
-    .admin-layout.flex
+    .admin-layout.flex.w-
       = render "layouts/admin/aside"
     
-      .layout-admin-container.h-screen.flex.flex-col.flex-1.[class="w-[calc(100vw - 14rem)] pl-[14rem]"]
+      .layout-admin-container.h-screen.flex.flex-col.flex-1.[class="md:[calc(100vw - 15rem)] pl-[3.5rem] md:pl-[15rem]"]
           = render "layouts/admin/header"
-          .admin-layout-body.flex-1.overflow-auto
+          .admin-layout-body.flex-1.overflow-auto.p-6.mb-6
             = yield
+          = render "layouts/admin/footer"
             

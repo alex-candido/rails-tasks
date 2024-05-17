@@ -2,24 +2,26 @@
   .hero-content.flex.justify-between.bg-white.mb-6.p-6.rounded-md.border-spacing-1 
     .admin-hero-title.font-bold.text-3xl[class="text-[#7a7a7a]"]
       span.text-2xl.md:text-3xl Users
-    .admin-hero-actions 
-      span = link_to "New user", new_admin_user_path
+    .admin-hero-actions.button 
+      span = link_to "New user", new_admin_user_path, :class => 'button'
 
 .admin-section
-  .card.bg-white.p-6.border-spacing-1.rounded-md.border-spacing-1
-    .card-header
-      .header-title header
-    .card-content.py-4.px-6 
-      .table-content   
-        - @users.each do |user|
-          .field.flex
-            span == render user
-            span &nbsp;
-            p = link_to "Show this user", [:admin, user]
-    .card-footer  
-      .footer-content.flex.justify-between 
-        .lef
-        .right
-          span Pagination
+    .card.bg-white.border-spacing-1.rounded-md.border-spacing-1 
+      .card-header.flex.items-center.gap-4.py-4.px-6[class="border-b-[1px]"] 
+        span.icon.inline-flex.items-center
+          = raw File.read('app/assets/images/users.svg')
+        span.header-title.font-bold.pt-1 Users
+      .card-content.py-4.px-6 
+        .table-content   
+          - @users.each do |user|
+            .field.flex
+              span == render user
+              span &nbsp;
+              p = link_to "Show this user", [:admin, user]
+      .card-footer.py-4.px-6[class="border-t-[1px]"]  
+        .footer-content.flex.justify-between 
+          .lef
+          .right
+            span Pagination
 
 

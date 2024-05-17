@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./admin/base.css";
+@import "./shared/base.css";
+
 /*
 
 @layer components {
@@ -11,3 +14,9 @@
 }
 
 */
+
+@layer components {
+  .button {
+    @apply flex items-center justify-end py-2 px-6 bg-gre whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 mr-3 last:mr-0 undefined;
+  }
+}

@@ -1,35 +1,38 @@
 header.admin-header.min-h-16.bg-white.shadow-sm.z-10
     .admin-header-navbar.h-full
-        .navbar-container.mx-auto.flex.h-full.justify-around[class="w-5/6"]
+        .navbar-container.mx-auto.flex.h-full.justify-around.text-slate-800[class="w-5/6"]
             .navbar-start.w-full.flex.items-center
             
             .navbar-end.w-full.flex.items-center.justify-end
-                .navbar-menu.hidden.md:block.relative.group.py-4.px-6.[class="border-x-[1px]"] 
+                .navbar-menu.hidden.md:block.relative.group.py-4.px-6.hover:bg-gray-200.[class="border-x-[1px]"] 
                     .navbar-header
                         button.flex.justify-center.items-center.gap-4#dropdown-button 
                             span.icon
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="23px" width="23px" xmlns="http://www.w3.org/2000/svg"><path d="M432 176H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 272H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 368H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16z"></path></svg>
+                                    = raw File.read('app/assets/images/menu.svg')
                             span.label Menu
                     .navbar-dropdown.hidden.absolute.group-hover:block.right-0.z-10.w-56.origin-top-right.rounded-md.bg-white.shadow-lg.ring-1.ring-black.ring-opacity-5.focus:outline-none.py-3
                         .navbar-item
                             .navbar-field.flex.cursor-pointer.py-2.text-base.hover:bg-gray-200
-                                span.icon.px-4.inline-flex.justify-center.items-center Icon
-                                span.label.grow.pr-12 Link 1 
+                                span.icon.px-4.inline-flex.justify-center.items-center 
+                                    = raw File.read('app/assets/images/users.svg')
+                                span.label.grow.pr-12 = link_to "Users", admin_users_path 
                         .navbar-item
                             .navbar-field.flex.cursor-pointer.py-2.text-base.hover:bg-gray-200
-                                span.icon.px-4.inline-flex.justify-center.items-center Icon
-                                span.label.grow.pr-12 Link 2
-                        .navbar-item
-                            .navbar-field.flex.cursor-pointer.py-2.text-base.hover:bg-gray-200
-                                span.icon.px-4.inline-flex.justify-center.items-center Icon
-                                span.label.grow.pr-12 Link 3  
+                                span.icon.px-4.inline-flex.justify-center.items-center 
+                                    = raw File.read('app/assets/images/projects.svg')
+                                span.label.grow.pr-12 Projects
                 .navbar-user
-                    .navbar-item.flex.gap-4.justify-center.items-center.py-4.px-6[class="border-r-[1px]"] 
-                        img.inline-block.h-7.w-7.rounded-full.ring-2.ring-white src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        p User 
+                    .navbar-item.flex.gap-4.justify-center.items-center.py-4.px-6.hover:bg-gray-200.[class="border-r-[1px]"] 
+                        img.img.inline-block.h-7.w-7.rounded-full.ring-2.ring-white src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        span.label User
                 .narvar-log-out
-                    .navbar-item.flex.gap-4.justify-center.items-center.py-4.px-6[class="border-r-[1px]"]
-                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>  
+                    .navbar-item.relative.flex.gap-4.justify-center.items-center.hover:bg-gray-200.h-full[class="border-r-[1px]"]
+                        - if user_signed_in?
+                        span.icon.py-5.pl-6   
+                            = raw File.read('app/assets/images/log_out.svg') 
+                        span.label.py-5.pl-12.pr-8 = link_to "Logout", destroy_user_session_path, :class => 'absolute left-0 right-0 top-0 bottom-0 flex items-center justify-end py-4 pr-8', "data-turbo-method": :delete
+
+                        
 
                          
 

@@ -17,7 +17,12 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
+    require('postcss-import'),
+    require('autoprefixer'),
+    require("postcss-nested"),
+    require("postcss-flexbugs-fixes"),
   ]
 }
